@@ -1359,7 +1359,8 @@ export = {
         taskDefinition,
         cloudMapOptions: {
           name: 'myApp',
-          dnsRecordType: cloudmap.DnsRecordType.SRV
+          dnsRecordType: cloudmap.DnsRecordType.SRV,
+          dnsTtl: cdk.Duration.seconds(10),
         }
       });
 
@@ -1368,7 +1369,7 @@ export = {
         DnsConfig: {
           DnsRecords: [
             {
-              TTL: 60,
+              TTL: 10,
               Type: "SRV"
             }
           ],
